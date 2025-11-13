@@ -37,19 +37,10 @@ LOGIC:
 
 */
 
-// ==== Variables ====
-let player;
-let computer;
+function startGame(){ //When 'GO' button is clicked, game starts
+    let player = document.getElementById('userInput').value.toUpperCase(); //Grab users input and changes values to upper case
+    console.log('User Input: ' + player); //Checks to see input was grabbed
 
-const moves = ['ROCK', 'PAPER', 'SCISSOR'];
+    
 
-/* 
-
---- Random choice generator ---
-Every time the user hits 'THROW', the computer will generate a random index from the moves array 
-
-*/
-
-// Check: Randomization
-console.log(computer);
-
+}
