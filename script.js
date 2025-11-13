@@ -42,6 +42,9 @@ function startGame(){
     console.log('User Input: ' + player); //Checks to see input was grabbed
 
     let computer;
+    const winMessage = document.getElementById("displayWin");
+    const loseMessage = document.getElementById("displayLOSE");
+    const tieMessage = document.getElementById("displayTie");
 
     const moves = ['ROCK', 'PAPER', 'SCISSOR']
 
@@ -52,7 +55,54 @@ function startGame(){
         computer = moves[Math.floor(Math.random() * moves.length)]
         console.log('Computer Move: ' + computer); 
 
+        // If User is ROCK and Computer is PAPER
+        if (player === 'ROCK' && computer === 'PAPER'){
+            displayTie.style.display = 'none';
+            displayWin.style.display = 'none';
+            displayLose.style.display = 'block';
+        }
+        // If User is ROCK and Computer is SCISSOR
+        else if (player === 'ROCK' && computer === 'SCISSOR'){
+            displayTie.style.display = 'none';
+            displayLose.style.display = 'none';
+            displayWin.style.display = 'block';
+        }
+        // If User is PAPER and Computer is ROCK
+        else if (player === 'PAPER' && computer === 'ROCK'){
+            displayTie.style.display = 'none';
+            displayLose.style.display = 'none';
+            displayWin.style.display = 'block';
+        }
+        // If User is PAPER and Computer is SCISSOR
+        else if (player === 'PAPER' && computer === 'SCISSOR'){
+            displayTie.style.display = 'none';
+            displayWin.style.display = 'none';
+            displayLose.style.display = 'block';
+        }
+        // IF User is SCISSOR and Computer is ROCK
+        else if (player === 'SCISSOR' && computer === 'ROCK'){
+            displayTie.style.display = 'none';
+            displayWin.style.display = 'none';
+            displayLose.style.display = 'block';
+        }
+        // IF User is SCISSOR and Computer is PAPER
+        else if (player === 'SCISSOR' && computer === 'PAPER'){
+            displayTie.style.display = 'none';
+            displayLose.style.display = 'none';
+            displayWin.style.display = 'block';
+        }
+        // Else if User and Computer is equal
+        else {
+            displayLose.style.display = 'none';
+            displayWin.style.display = 'none';
+            displayTie.style.display = 'block';
+        }
+
+
     }else {
         console.log('Enter a valid move (ROCK, PAPER, or SCISSOR)');
+
+        displayWin.style.display = 'none';
+        displayLose.style.display = 'block';
     }
 }
