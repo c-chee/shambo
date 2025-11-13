@@ -102,7 +102,6 @@ function startGame(){
     }else {
         console.log('Enter a valid move (ROCK, PAPER, or SCISSOR)');
 
-        displayWin.style.display = 'none';
-        displayLose.style.display = 'block';
+        
     }
 }

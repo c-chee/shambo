@@ -1,2 +1,2 @@
-# shambo
+# roshambo
 Rock, Paper, Scissors Game
