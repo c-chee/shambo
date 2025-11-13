@@ -37,10 +37,22 @@ LOGIC:
 
 */
 
-function startGame(){ //When 'GO' button is clicked, game starts
+function startGame(){
     let player = document.getElementById('userInput').value.toUpperCase(); //Grab users input and changes values to upper case
     console.log('User Input: ' + player); //Checks to see input was grabbed
 
-    
+    let computer;
 
+    const moves = ['ROCK', 'PAPER', 'SCISSOR']
+
+
+    if (moves.includes(player)){
+        console.log('User input validated.');
+
+        computer = moves[Math.floor(Math.random() * moves.length)]
+        console.log('Computer Move: ' + computer); 
+
+    }else {
+        console.log('Enter a valid move (ROCK, PAPER, or SCISSOR)');
+    }
 }
