@@ -37,8 +37,11 @@ LOGIC:
 *****************************************************************
 */
 
-const playerScore = 0;
-const computerScore = 0;
+let playerScore = 0;
+let computerScore = 0;
+
+let playerScoreDisplay = document.getElementById("displayPlayerScore");
+let computerScoreDisplay = document.getElementById("displayComputerScore");
 
 function startGame(){
     let player = document.getElementById('userInput').value.toUpperCase(); //Grab users input and changes values to upper case
@@ -66,6 +69,7 @@ function startGame(){
         tieMessage.style.display = "none";
         errorMessage.style.display = "none";
 
+
         // If User is ROCK and Computer is PAPER
         if ((player === 'ROCK' && computer === 'PAPER') ||
             (player === 'PAPER' && computer === 'SCISSOR') ||
@@ -74,6 +78,11 @@ function startGame(){
                 displayLose.style.display = 'block'; // Lose
 
                 console.log('You Lose!')
+
+                computerScore++
+
+                playerScoreDisplay.innerHTML = `Player: ${playerScore}`;
+                computerScoreDisplay.innerHTML = `Computer: ${computerScore}`;
 
         }
         // If User is ROCK and Computer is SCISSOR
@@ -85,6 +94,11 @@ function startGame(){
 
                     console.log('You Win!');
 
+                    playerScore++;
+
+                    playerScoreDisplay.innerHTML = `Player: ${playerScore}`;
+                    computerScoreDisplay.innerHTML = `Computer: ${computerScore}`;
+
         }
         // Else, User and Computer equals
         else {
@@ -93,10 +107,12 @@ function startGame(){
 
             console.log('Tie!');
 
+            playerScoreDisplay.innerHTML = `Player: ${playerScore}`;
+            computerScoreDisplay.innerHTML = `Computer: ${computerScore}`;
+
         }
 
         input.value = "";
-
 
     }else {
         console.log('Enter a valid move (ROCK, PAPER, or SCISSOR)');
@@ -105,6 +121,25 @@ function startGame(){
         displayTie.style.display = 'none';
         errorMessage.style.display = 'block';
 
+        input.value = "";
+
         console.log('Not a valid move!');
+
+        playerScoreDisplay.innerHTML = `Player: ${playerScore}`;
+        computerScoreDisplay.innerHTML = `Computer: ${computerScore}`;
     }
 }
+
+
+function resetScore() {
+    playerScore = 0;
+    computerScore = 0;
+
+    playerScoreDisplay.innerHTML = playerScore;
+    computerScoreDisplay.innerHTML = computerScore;
+
+    playerScoreDisplay.innerHTML = `Player: ${playerScore}`;
+    computerScoreDisplay.innerHTML = `Computer: ${computerScore}`;
+}
+
+
