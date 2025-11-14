@@ -5,3 +5,7 @@ body {
 .gameResult {
     display: none;
 }
+
+.errorMessage {
+    display: none;
+}
