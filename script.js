@@ -1,5 +1,5 @@
 /*
-*********** Shambo ***********
+********************** Roshambo ********************************
 
 LOGIC:
 - [USER] Input field
@@ -34,7 +34,7 @@ LOGIC:
               - Removes previous user and player choices.
 - [RESET] - Resets WIN, LOSE, and TIE back to 0.
 
-
+*****************************************************************
 */
 
 function startGame(){
@@ -58,53 +58,30 @@ function startGame(){
         console.log('Computer Move: ' + computer); 
 
         // If User is ROCK and Computer is PAPER
-        if (player === 'ROCK' && computer === 'PAPER'){
-            errorMessage.style.display = 'none';
-            displayTie.style.display = 'none';
-            displayWin.style.display = 'none';
-            displayLose.style.display = 'block';
+        if ((player === 'ROCK' && computer === 'PAPER') ||
+            (player === 'PAPER' && computer === 'SCISSOR') ||
+            (player === 'SCISSOR' && computer === 'ROCK')){
+                errorMessage.style.display = 'none';
+                displayTie.style.display = 'none';
+                displayWin.style.display = 'none';
+                displayLose.style.display = 'block'; // Lose
         }
         // If User is ROCK and Computer is SCISSOR
-        else if (player === 'ROCK' && computer === 'SCISSOR'){
-            errorMessage.style.display = 'none';
-            displayTie.style.display = 'none';
-            displayLose.style.display = 'none';
-            displayWin.style.display = 'block';
+        else if ((player === 'ROCK' && computer === 'SCISSOR') ||
+                 (player === 'PAPER' && computer === 'ROCK') ||
+                 (player === 'SCISSOR' && computer === 'PAPER')){
+                    
+                    errorMessage.style.display = 'none';
+                    displayTie.style.display = 'none';
+                    displayLose.style.display = 'none';
+                    displayWin.style.display = 'block'; //Win
         }
-        // If User is PAPER and Computer is ROCK
-        else if (player === 'PAPER' && computer === 'ROCK'){
-            errorMessage.style.display = 'none';
-            displayTie.style.display = 'none';
-            displayLose.style.display = 'none';
-            displayWin.style.display = 'block';
-        }
-        // If User is PAPER and Computer is SCISSOR
-        else if (player === 'PAPER' && computer === 'SCISSOR'){
-            errorMessage.style.display = 'none';
-            displayTie.style.display = 'none';
-            displayWin.style.display = 'none';
-            displayLose.style.display = 'block';
-        }
-        // IF User is SCISSOR and Computer is ROCK
-        else if (player === 'SCISSOR' && computer === 'ROCK'){
-            errorMessage.style.display = 'none';
-            displayTie.style.display = 'none';
-            displayWin.style.display = 'none';
-            displayLose.style.display = 'block';
-        }
-        // IF User is SCISSOR and Computer is PAPER
-        else if (player === 'SCISSOR' && computer === 'PAPER'){
-            errorMessage.style.display = 'none';
-            displayTie.style.display = 'none';
-            displayLose.style.display = 'none';
-            displayWin.style.display = 'block';
-        }
-        // Else if User and Computer is equal
+        // Else, User and Computer equals
         else {
             errorMessage.style.display = 'none';
             displayLose.style.display = 'none';
             displayWin.style.display = 'none';
-            displayTie.style.display = 'block';
+            displayTie.style.display = 'block'; //Tie
         }
 
 
