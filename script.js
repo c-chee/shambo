@@ -23,10 +23,10 @@ LOGIC:
             SCISSOR > PAPER
             EQUALS
 
-- [IF] - The user won, display WINNER.
-       - Add +1 to WIN
-  [ELSE IF] - Display LOSER.
+- [IF] - Display LOSER.
             - Add +1 to LOSS
+  [ELSE IF] - The user won, display WINNER.
+       - Add +1 to WIN
   [ELSE] - Answers equal, display [TIE]
          - Add +1 to TIE
 
@@ -39,11 +39,13 @@ LOGIC:
 
 function startGame(){
     let player = document.getElementById('userInput').value.toUpperCase(); //Grab users input and changes values to upper case
-    console.log('User Input: ' + player); //Checks to see input was grabbed
+    console.log('Users Move: ' + player); //Checks to see input was grabbed
+
+    const input = document.getElementById("userInput");
 
     let computer;
     const winMessage = document.getElementById("displayWin");
-    const loseMessage = document.getElementById("displayLOSE");
+    const loseMessage = document.getElementById("displayLose");
     const tieMessage = document.getElementById("displayTie");
     const errorMessage = document.getElementById("displayError");
 
@@ -55,34 +57,50 @@ function startGame(){
         console.log('User input validated.');
 
         computer = moves[Math.floor(Math.random() * moves.length)]
-        console.log('Computer Move: ' + computer); 
+        console.log('Computers Move: ' + computer); 
+
+        winMessage.style.display = "none";
+        loseMessage.style.display = "none";
+        tieMessage.style.display = "none";
+        errorMessage.style.display = "none";
 
         // If User is ROCK and Computer is PAPER
         if ((player === 'ROCK' && computer === 'PAPER') ||
             (player === 'PAPER' && computer === 'SCISSOR') ||
             (player === 'SCISSOR' && computer === 'ROCK')){
-                errorMessage.style.display = 'none';
-                displayTie.style.display = 'none';
-                displayWin.style.display = 'none';
+                // errorMessage.style.display = 'none';
+                // displayTie.style.display = 'none';
+                // displayWin.style.display = 'none';
                 displayLose.style.display = 'block'; // Lose
+
+                console.log('You Lose!')
+
         }
         // If User is ROCK and Computer is SCISSOR
         else if ((player === 'ROCK' && computer === 'SCISSOR') ||
                  (player === 'PAPER' && computer === 'ROCK') ||
                  (player === 'SCISSOR' && computer === 'PAPER')){
                     
-                    errorMessage.style.display = 'none';
-                    displayTie.style.display = 'none';
-                    displayLose.style.display = 'none';
+                    // errorMessage.style.display = 'none';
+                    // displayTie.style.display = 'none';
+                    // displayLose.style.display = 'none';
                     displayWin.style.display = 'block'; //Win
+
+                    console.log('You Win!');
+
         }
         // Else, User and Computer equals
         else {
-            errorMessage.style.display = 'none';
-            displayLose.style.display = 'none';
-            displayWin.style.display = 'none';
+            // errorMessage.style.display = 'none';
+            // displayLose.style.display = 'none';
+            // displayWin.style.display = 'none';
             displayTie.style.display = 'block'; //Tie
+
+            console.log('Tie!');
+
         }
+
+        input.value = "";
 
 
     }else {
@@ -91,5 +109,7 @@ function startGame(){
         displayWin.style.display = 'none';
         displayTie.style.display = 'none';
         errorMessage.style.display = 'block';
+
+        console.log('Not a valid move!');
     }
 }
