@@ -40,34 +40,42 @@ LOGIC:
 let playerScore = 0;
 let computerScore = 0;
 
-let playerScoreDisplay = document.getElementById("displayPlayerScore");
-let computerScoreDisplay = document.getElementById("displayComputerScore");
+let player;
 
-function startGame(){
-    let player = document.getElementById('userInput').value.toUpperCase(); //Grab users input and changes values to upper case
-    console.log('Users Move: ' + player); //Checks to see input was grabbed
-
-    const input = document.getElementById("userInput");
-
-    let computer;
-    const winMessage = document.getElementById("displayWin");
-    const loseMessage = document.getElementById("displayLose");
-    const tieMessage = document.getElementById("displayTie");
-    const errorMessage = document.getElementById("displayError");
-
-    const moves = ['ROCK', 'PAPER', 'SCISSOR']
+let playerScoreDisplay = document.getElementById('displayPlayerScore');
+let computerScoreDisplay = document.getElementById('displayComputerScore');
 
 
+// const rockButton = document.getElementById('rock-btn');
+// const paperButton = document.getElementById('paper-btn');
+// const scissorButton = document.getElementById('scissor-btn');
+
+const moves = ['ROCK', 'PAPER', 'SCISSOR'];
+
+let input;
+
+// rockButton.value = 'ROCK';
+// paperButton.value = 'PAPER';
+// scissorButton.value = 'SCISSOR';
+
+let computer;
+const winMessage = document.getElementById('displayWin');
+const loseMessage = document.getElementById('displayLose');
+const tieMessage = document.getElementById('displayTie');
+const errorMessage = document.getElementById('displayError');
+
+function logicCondition() {
+    //player && moves.includes(player)
     if (moves.includes(player)){
         console.log('User input validated.');
 
         computer = moves[Math.floor(Math.random() * moves.length)]
         console.log('Computers Move: ' + computer); 
 
-        winMessage.style.display = "none";
-        loseMessage.style.display = "none";
-        tieMessage.style.display = "none";
-        errorMessage.style.display = "none";
+        winMessage.style.display = 'none';
+        loseMessage.style.display = 'none';
+        tieMessage.style.display = 'none';
+        errorMessage.style.display = 'none';
 
 
         // If User is ROCK and Computer is PAPER
@@ -75,9 +83,9 @@ function startGame(){
             (player === 'PAPER' && computer === 'SCISSOR') ||
             (player === 'SCISSOR' && computer === 'ROCK')){
 
-                displayLose.style.display = 'block'; // Lose
+                loseMessage.style.display = 'block'; // Lose
 
-                console.log('You Lose!')
+                console.log('You Lose!');
 
                 computerScore++
 
@@ -90,7 +98,7 @@ function startGame(){
                  (player === 'PAPER' && computer === 'ROCK') ||
                  (player === 'SCISSOR' && computer === 'PAPER')){
                     
-                    displayWin.style.display = 'block'; //Win
+                    winMessage.style.display = 'block'; //Win
 
                     console.log('You Win!');
 
@@ -103,7 +111,7 @@ function startGame(){
         // Else, User and Computer equals
         else {
 
-            displayTie.style.display = 'block'; //Tie
+            tieMessage.style.display = 'block'; //Tie
 
             console.log('Tie!');
 
@@ -112,22 +120,64 @@ function startGame(){
 
         }
 
-        input.value = "";
+        input.value = '';
 
     }else {
         console.log('Enter a valid move (ROCK, PAPER, or SCISSOR)');
-        displayLose.style.display = 'none';
-        displayWin.style.display = 'none';
-        displayTie.style.display = 'none';
+        loseMessage.style.display = 'none';
+        winMessage.style.display = 'none';
+        tieMessage.style.display = 'none';
         errorMessage.style.display = 'block';
 
-        input.value = "";
+        input.value = '';
 
         console.log('Not a valid move!');
 
         playerScoreDisplay.innerHTML = `Player: ${playerScore}`;
         computerScoreDisplay.innerHTML = `Computer: ${computerScore}`;
     }
+}
+
+function rock() {
+    //
+    player = 'ROCK';
+    //Solves the missing input error
+    input = document.getElementById('userInput');
+    input.value = '';
+
+    //
+    logicCondition()
+}
+
+function paper() {
+    //
+    player = 'PAPER';
+    input = document.getElementById('userInput');
+    input.value = '';
+
+    //
+    logicCondition()
+}
+
+function scissor() {
+    //
+    player = 'SCISSOR';
+    input = document.getElementById('userInput');
+    input.value = '';
+
+    //
+    logicCondition()
+}
+
+function startGame(){
+    player = document.getElementById('userInput').value.toUpperCase(); //Grab users input and changes values to upper case
+    console.log('Users Move: ' + player); //Checks to see input was grabbed
+
+    input = document.getElementById('userInput');
+
+    //call cnitinn
+    logicCondition()
+    
 }
 
 
@@ -141,5 +191,7 @@ function resetScore() {
     playerScoreDisplay.innerHTML = `Player: ${playerScore}`;
     computerScoreDisplay.innerHTML = `Computer: ${computerScore}`;
 }
+
+
 
 

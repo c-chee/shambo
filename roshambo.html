@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang = 'en'>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset = 'UTF-8'>
+    <meta name = 'viewport' content = 'width=device-width, initial-scale=1.0'>
     <title>Roshambo</title>
 
     <!-- CSS Link -->
-    <link rel = "stylesheet" href = "styles.css">
+    <link rel = 'stylesheet' href = 'styles.css'>
 
 </head>
 <body>
     <!-- JS Link -->
-    <script src="script.js" defer></script>
+    <script src = 'script.js' defer></script>
     
     <!-- Computer -->
     <section>
@@ -24,6 +24,12 @@
     <section>
         <!-- Player Input -->
         <h4>Enter your move:</h4>
+
+        <button id = 'rock-btn' class = 'moves rock' onclick = 'rock()'>ROCK</button>
+        <button id = 'paper-btn' class = 'moves paper' onclick = 'paper()'>PAPER</button>
+        <button id = 'scissor-btn' class = 'moves scissor'
+        onclick = 'scissor()'>SCISSOR</button>
+
         <input id = 'userInput' type = 'text' placeholder = 'Your Move'>
 
         <button id = 'go-btn' onclick = 'startGame()'>GO</button>
@@ -36,8 +42,8 @@
         <p id = 'displayLose' class = 'gameResult lose'>YOU LOSE!</p>
         <p id = 'displayTie' class = 'gameResult tie'>TIE!</p>
 
-        <p id="displayPlayerScore"></p>
-        <p id="displayComputerScore"></p>
+        <p id = 'displayPlayerScore'></p>
+        <p id = 'displayComputerScore'></p>
 
     </section>
 </body>
