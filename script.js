@@ -45,18 +45,12 @@ let player;
 let playerScoreDisplay = document.getElementById('displayPlayerScore');
 let computerScoreDisplay = document.getElementById('displayComputerScore');
 
-
-// const rockButton = document.getElementById('rock-btn');
-// const paperButton = document.getElementById('paper-btn');
-// const scissorButton = document.getElementById('scissor-btn');
+let computerMoveDisplay = document.getElementById('displayComputerMove');
 
 const moves = ['ROCK', 'PAPER', 'SCISSOR'];
 
 let input;
 
-// rockButton.value = 'ROCK';
-// paperButton.value = 'PAPER';
-// scissorButton.value = 'SCISSOR';
 
 let computer;
 const winMessage = document.getElementById('displayWin');
@@ -83,6 +77,8 @@ function logicCondition() {
             (player === 'PAPER' && computer === 'SCISSOR') ||
             (player === 'SCISSOR' && computer === 'ROCK')){
 
+                computerMoveDisplay.innerHTML = `Computer Move: ${computer}`;
+
                 loseMessage.style.display = 'block'; // Lose
 
                 console.log('You Lose!');
@@ -97,6 +93,8 @@ function logicCondition() {
         else if ((player === 'ROCK' && computer === 'SCISSOR') ||
                  (player === 'PAPER' && computer === 'ROCK') ||
                  (player === 'SCISSOR' && computer === 'PAPER')){
+
+                    computerMoveDisplay.innerHTML = `Computer Move: ${computer}`;
                     
                     winMessage.style.display = 'block'; //Win
 
@@ -110,6 +108,8 @@ function logicCondition() {
         }
         // Else, User and Computer equals
         else {
+
+            computerMoveDisplay.innerHTML = `Computer Move: ${computer}`;
 
             tieMessage.style.display = 'block'; //Tie
 
