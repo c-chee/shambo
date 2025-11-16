@@ -14,6 +14,21 @@ body {
     font-family: "Lexend Tera", sans-serif;
 }
 
+main {
+    display: flex;
+    flex-direction: column;
+    font-family: "Lexend Tera", sans-serif;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    padding: 50px;
+    border-radius: 10px;
+    color: white;
+    background-color: #3a745d;
+    border: 7px solid #d19e6f;
+    border-radius: 2px;
+}
+
 .gameResult {
     display: none;
     color: #d7ff44;
@@ -171,6 +186,65 @@ body {
     text-align: center;
     justify-content: center;
     align-items: center;
+}
+
+.back-home {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.322);
+    text-shadow: 0 0 5px #3d3d3d;
+    align-self: flex-start;
+    margin: 2em;
+    padding: 10px;
+    text-decoration: none;
+    border: 2px solid white;
+    border-radius: 10px;
+    font-size: 12px;
+}
+
+.back-home:hover{
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.704);
+    transition: background-color 0.3s ease;
+}
+
+.home.title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.home.title h1 {
+    margin: 5px;
+}
+
+.home.title h4 {
+    margin: 0;
+}
+
+.home.title h5 {
+    margin: 10px;
+    color: #d7ff44;
+}
+
+.mode-btn {
+    color: #d283ff;
+    /* background-color: #d283ff; */
+    cursor: pointer;
+    border: 3px solid #d283ff;
+    border-radius: 5px;
+    font-weight: 700;
+    margin: 2em;
+    padding: 10px 40px;
+    text-decoration: none;
+}
+
+.mode-btn:hover{
+    border: 3px solid #560061;
+    background-color: #560061;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
 }
 
 /* ===== BreakPoints ===== */
