@@ -1,6 +1,6 @@
 # roshambo
 Rock, Paper, Scissors Game
-- SpongeBob Themed -
+ -SpongeBob Themed-
 
 ## Usage Guide 
 ### To Play
